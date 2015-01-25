@@ -51,7 +51,7 @@ Then, create an instance of ``person`` with ``first_name``, ``last_name`` and ``
 
     TypeError: _istruct() takes 0 positional arguments but 2 were given
 
-However, it would complain when one or more _required_ fields are omitted.
+However, it would complain when one or more *required* fields are omitted.
 
 .. code-block:: python
 
@@ -72,6 +72,7 @@ However, it would complain when one or more _required_ fields are omitted.
 
 TODO
 ----
+- setup.py and PyPI
 - find ways to annotate types
 - make it compatible with Python 2.x
 

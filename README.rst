@@ -73,6 +73,7 @@ However, it would complain when one or more _required_ fields are omitted.
 TODO
 ----
 - find ways to annotate types
+- make it compatible with Python 2.x
 
 license
 -------

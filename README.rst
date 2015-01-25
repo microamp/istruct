@@ -1,16 +1,17 @@
 istruct
 =======
-immutable struct built on top of ``collections.namedtuple`` with sane defaults
+Immutable struct built on top of ``collections.namedtuple`` with sane defaults
 
-goals
+Goals
 -----
-- immutability: cannot be modified once created
-- allow optional fields (with default values specified)
-- strictly disallow positional arguments
+- Immutable, dictionary-like data structure
+- Minimal
+- Support required *and* optional fields (with default values)
+- Strictly disallow positional arguments
 
-quickstart
-----------
-First, create an ``istruct`` called ``person`` where ``first_name`` and ``last_name`` are *required* whereas ``middle_name``, ``dob`` and ``email`` are *optional* (with default values specified).
+Quick Start
+-----------
+First, create an ``istruct`` object called ``person`` where ``first_name`` and ``last_name`` are *required* whereas ``middle_name``, ``dob`` and ``email`` are *optional* (with default values specified).
 
 .. code-block:: python
 
@@ -27,11 +28,21 @@ Then, create an instance of ``person`` with ``first_name``, ``last_name`` and ``
     In [4]: p
     Out[4]: istruct_a3e45e42fb244834bbcbe701210a2931(first_name='Jim', last_name='Raynor', email=None, dob='2000-01-01', middle_name='Eugene')
 
-``p`` is immutable, meaning it cannot be modified after created. Thus, set operations like below would fail, raising an ``AttributeError``.
+You can retrieve field values like you would normally do.
 
 .. code-block:: python
 
-    In [5]: p.first_name = "James"
+    In [5]: p.first_name
+    Out[5]: 'Jim'
+
+    In [6]: p.dob
+    Out[6]: '2000-01-01'
+
+``p`` is immutable, meaning that it cannot be modified after created. Thus, set/delete operations like below would fail, raising an ``AttributeError``.
+
+.. code-block:: python
+
+    In [7]: p.first_name = "James"
     ---------------------------------------------------------------------------
     AttributeError                            Traceback (most recent call last)
     <ipython-input-13-681faedb279a> in <module>()
@@ -39,11 +50,19 @@ Then, create an instance of ``person`` with ``first_name``, ``last_name`` and ``
 
     AttributeError: can't set attribute
 
+    In [8]: del p.email
+    ---------------------------------------------------------------------------
+    AttributeError                            Traceback (most recent call last)
+    <ipython-input-12-d5c698764d13> in <module>()
+    ----> 1 del p.email
+
+    AttributeError: can't delete attribute
+
 ``istruct`` only accepts named/keyword arguments. It strictly disallows positional arguments by design.
 
 .. code-block:: python
 
-    In [6]: p = person("Jim", "Raynor")
+    In [9]: p = person("Jim", "Raynor")
     ---------------------------------------------------------------------------
     TypeError                                 Traceback (most recent call last)
     <ipython-input-14-c0bdbd269e9f> in <module>()
@@ -55,7 +74,7 @@ However, it would complain when one or more *required* fields are omitted.
 
 .. code-block:: python
 
-    In [7]: p = person(last_name="Raynor")
+    In [10]: p = person(last_name="Raynor")
     ---------------------------------------------------------------------------
     TypeError                                 Traceback (most recent call last)
     <ipython-input-15-451d2add9ee8> in <module>()
@@ -72,10 +91,8 @@ However, it would complain when one or more *required* fields are omitted.
 
 TODO
 ----
-- setup.py and PyPI
-- find ways to annotate types
-- make it compatible with Python 2.x
+- Find ways to annotate types
 
-license
+License
 -------
 MIT

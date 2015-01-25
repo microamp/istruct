@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 
+__version__ = "0.1"
+
 from collections import namedtuple
 from uuid import uuid4
 
 
-def name(prefix=__name__):
+def name(prefix="istruct"):
     return "{prefix}_{uuid}".format(prefix=prefix,
                                     uuid=str(uuid4()).replace("-", ""))
 
 
-def merge_tuples(*tuples, sep=", "):
-    return sep.join(item for t in tuples for item in t)
+def merge_tuples(*tuples):
+    return ", ".join(item for t in tuples for item in t)
 
 
 def merge_dicts(*dicts):
@@ -18,8 +20,7 @@ def merge_dicts(*dicts):
 
 
 def istruct(*args, **kwargs):
-    """Implement an immutable struct on top of `collections.namedtuple` with
-    saner defaults.
+    """Implement an immutable struct on top of `collections.namedtuple`.
     """
 
     def _istruct(**attrs):

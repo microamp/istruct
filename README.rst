@@ -10,7 +10,7 @@ goals
 
 quickstart
 ----------
-First, create an ``istruct`` called ``person`` where ``first_name`` and ``last_name`` are _required_ whereas ``middle_name``, ``dob`` and ``email`` are _optional_ (with default values specified).
+First, create an ``istruct`` called ``person`` where ``first_name`` and ``last_name`` are *required* whereas ``middle_name``, ``dob`` and ``email`` are *optional* (with default values specified).
 
 .. code-block:: python
 
@@ -69,6 +69,10 @@ However, it would complain when one or more _required_ fields are omitted.
          29     return _istruct
 
     TypeError: __new__() missing 1 required positional argument: 'first_name'
+
+TODO
+----
+- find ways to annotate types
 
 license
 -------

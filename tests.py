@@ -57,6 +57,15 @@ class TestIStruct(unittest.TestCase):
         self.assertEqual(p.email, "jim.raynor@example.com")
         self.assertIsNone(p.contact_no)  # default
 
+    def test_bad_args(self):
+        try:
+            # `first_name` as positional *and* keyword argument
+            istruct("first_name", "last_name", first_name="James")
+        except ValueError as e:
+            self.assertEqual(str(e),
+                             "A field must be either required or optional, "
+                             "not both: 'first_name'")
+
 
 if __name__ == "__main__":
     unittest.main()

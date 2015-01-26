@@ -61,6 +61,7 @@ class TestIStruct(unittest.TestCase):
         try:
             # `first_name` as positional *and* keyword argument
             istruct("first_name", "last_name", first_name="James")
+            assert False, "You should have never reached here!"
         except ValueError as e:
             self.assertEqual(str(e),
                              "A field must be either required or optional, "

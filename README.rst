@@ -4,7 +4,7 @@ Immutable struct built on top of ``collections.namedtuple`` with sane defaults
 
 Goals
 -----
-- Immutable, dictionary-like data structure (Note: ``istruct`` is *not** an immutable version of the existing ``struct`` in Python)
+- Immutable, dictionary-like data structure (Note: ``istruct`` is *not* an immutable version of the existing ``struct`` in Python)
 - Minimal
 - Support required *and* optional fields (with default values)
 - Strictly disallow positional arguments

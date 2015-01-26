@@ -9,6 +9,11 @@ Goals
 - Support required *and* optional fields (with default values)
 - Strictly disallow positional arguments
 
+Installation
+------------
+
+``pip install istruct``
+
 Quick Start
 -----------
 First, create an ``istruct`` object called ``person`` where ``first_name`` and ``last_name`` are *required* whereas ``middle_name``, ``dob`` and ``email`` are *optional* (with default values specified).
@@ -88,6 +93,15 @@ However, it would complain when one or more *required* fields are omitted.
          29     return _istruct
 
     TypeError: __new__() missing 1 required positional argument: 'first_name'
+
+Versions Tested
+---------------
+- Python 2.7
+- Python 3.2
+- Python 3.3
+- Python 3.4
+- PyPy
+- PyPy3
 
 TODO
 ----

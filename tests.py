@@ -69,8 +69,19 @@ class TestIStruct(unittest.TestCase):
             assert False, "You should have never reached here!"
         except ValueError as e:
             self.assertEqual(str(e),
-                             "A field must be either required or optional, "
+                             "Each field must be either required or optional, "
                              "not both: 'first_name'")
+
+    def test_repeated_args(self):
+        try:
+            # `first_name` and `last_name` repeated multiple times
+            istruct("first_name", "last_name", "first_name", "last_name",
+                    "last_name", "middle_name")
+            assert False, "You should have never reached here!"
+        except ValueError as e:
+            self.assertEqual(str(e),
+                             "Each field cannot be present more than once: "
+                             "'first_name', 'last_name'")
 
 
 if __name__ == "__main__":

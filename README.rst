@@ -70,12 +70,19 @@ You can retrieve field values like you would normally do.
     In [9]: p = person("Jim", "Raynor")
     ---------------------------------------------------------------------------
     TypeError                                 Traceback (most recent call last)
-    <ipython-input-14-c0bdbd269e9f> in <module>()
+    <ipython-input-6-c0bdbd269e9f> in <module>()
     ----> 1 p = person("Jim", "Raynor")
 
-    TypeError: _istruct() takes 0 positional arguments but 2 were given
+    /home/microamp/devel/projs/istruct/istruct/__init__.py in _istruct(*positional, **attrs)
+         49         if positional:
+         50             raise TypeError("No positional arguments are allowed in istruct "
+    ---> 51                             "(%d found)" % (len(positional),))
+         52
+         53         nt = namedtuple(__name__,
 
-However, it would complain when one or more *required* fields are omitted.
+    TypeError: No positional arguments are allowed in istruct (2 found)
+
+``istruct`` would raise a ``TypeError`` when one or more *required* fields are omitted.
 
 .. code-block:: python
 

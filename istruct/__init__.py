@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 from collections import namedtuple
 from uuid import uuid4
@@ -37,7 +37,11 @@ def validate(f):
 def istruct(*args, **kwargs):
     """Implement an immutable struct on top of `collections.namedtuple`.
     """
-    def _istruct(**attrs):
+    def _istruct(*positional, **attrs):
+        if positional:
+            raise TypeError("No positional arguments are allowed in istruct "
+                            "(%d found)" % (len(positional),))
+
         nt = namedtuple(__name__,
                         merge_tuples(args, tuple(kwargs.keys())))
         return nt(**merge_dicts(kwargs, attrs))

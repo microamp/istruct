@@ -28,9 +28,14 @@ class TestIStruct(unittest.TestCase):
     def test_positional(self):
         person = istruct("first_name", "last_name")
 
-        # strictly disallow positional args
-        with self.assertRaises(TypeError):
+        try:
+            # positional args strictly disallowed
             person("jim", "raynor")
+            assert False, "You should have never reached here!"
+        except TypeError as e:
+            self.assertEqual(str(e),
+                             "No positional arguments are allowed in istruct "
+                             "(2 found)")
 
     def test_required(self):
         person = istruct("first_name", "last_name")

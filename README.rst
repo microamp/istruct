@@ -31,7 +31,7 @@ Then, create an instance of ``person`` with ``first_name``, ``last_name`` and ``
     In [3]: p = person(first_name="Jim", last_name="Raynor", middle_name="Eugene")
 
     In [4]: p
-    Out[4]: istruct_a3e45e42fb244834bbcbe701210a2931(first_name='Jim', last_name='Raynor', email=None, dob='2000-01-01', middle_name='Eugene')
+    Out[4]: istruct(first_name='Jim', last_name='Raynor', email=None, dob='2000-01-01', middle_name='Eugene')
 
 You can retrieve field values like you would normally do.
 

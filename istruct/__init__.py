@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from collections import namedtuple
 from uuid import uuid4
@@ -38,7 +38,8 @@ def istruct(*args, **kwargs):
     """Implement an immutable struct on top of `collections.namedtuple`.
     """
     def _istruct(**attrs):
-        nt = namedtuple(name(), merge_tuples(args, tuple(kwargs.keys())))
+        nt = namedtuple(__name__,
+                        merge_tuples(args, tuple(kwargs.keys())))
         return nt(**merge_dicts(kwargs, attrs))
 
     return _istruct

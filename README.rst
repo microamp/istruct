@@ -107,6 +107,8 @@ Versions Tested
 - Python 3.2
 - Python 3.3
 - Python 3.4
+- Python 3.5
+- Python 3.6
 - PyPy
 - PyPy3
 
